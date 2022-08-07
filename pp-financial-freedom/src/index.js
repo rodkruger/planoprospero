@@ -2,65 +2,48 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
-  
-  render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
-  }
-}
-
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
+class FinancialFreedomForm extends React.Component {
 
   render() {
-    const status = 'Next player: X';
 
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        <form>
+          <label>
+            Nome <input name="name" type="text" />
+          </label>
+          <label>
+            Qual é sua idade? <input name="age" type="text" />
+          </label>
+          <label>
+            Qual idade que atingir a Liberdade Financeira: <input name="finFreedomAge" type="text" />
+          </label>
+          <label>
+            Tempo para a Liberdade Financeira <input name="finFreedomTime" type="text" />
+          </label>
+          <label>
+            Expectativa de Vida <input name="lifeExpectancy" type="text" />
+          </label>
+          <label>
+            Tempo desfrutando a Liberdade Financeira <input name="finFreedomTimeUse" type="text" />
+          </label>
+          <label>
+            Renda Mensal pretendida após os 65 anos <input name="monthlyRevenue" type="text" />
+          </label>
+          <label>
+            Taxa de rentabilidade média mensal <input name="rate" type="text" />
+          </label>
+          <label>
+            Qual o patrimônio acumulado aos 65 anos? <input name="patrimony" type="text" />
+          </label>
+          <label>
+            Quanto devo depositar mensalmente? <input name="monthlyAmount" type="text" />
+          </label>
+        </form>
       </div>
     );
   }
 }
-
-class Game extends React.Component {
-  render() {
-    return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-      </div>
-    );
-  }
-}
-
-// ========================================
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game />);
+root.render(<FinancialFreedomForm />);
