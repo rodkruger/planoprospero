@@ -2,10 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 import Col from 'react-bootstrap/Col';
+import Figure from 'react-bootstrap/Figure'
 import Form from 'react-bootstrap/Form';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Row } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
 
 
 class FinancialFreedomForm extends React.Component {
@@ -14,27 +15,31 @@ class FinancialFreedomForm extends React.Component {
 
     return (
       <Form className="content">
+
         <center>
-          <h1>Intellect AI</h1>
-          <h2>Liberdade Financeira</h2>
+          <Figure>
+            <Figure.Image
+              src="./images/pp-logo.png"
+            />
+          </Figure>
         </center>
 
         <Form.Group as={Row} className="mb-3">
-          <Form.Label column>Qual o seu nome?</Form.Label>
+          <Form.Label column>Nome</Form.Label>
           <Col>
             <Form.Control name="name" type="text" size="sm" />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row} className="mb-3">
-          <Form.Label column>Qual a sua idade?</Form.Label>
+          <Form.Label column>Idade</Form.Label>
           <Col>
             <Form.Control name="age" type="number" size="sm" />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row} className="mb-3">
-          <Form.Label column>Qual idade que atingir a Liberdade Financeira</Form.Label>
+          <Form.Label column>Qual idade quer atingir a Liberdade Financeira</Form.Label>
           <Col>
             <Form.Control name="freedomAge" type="number" size="sm" />
           </Col>
