@@ -64,7 +64,7 @@ class FinancialFreedomForm extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
 
-    const parsedValue = parseFloat(value);
+    const parsedValue = parseFloat(value.replaceAll(".", "").replaceAll(",", "."));
 
     this.setState({
       [name]: parsedValue.toLocaleString()
@@ -86,8 +86,8 @@ class FinancialFreedomForm extends React.Component {
 
   handleCalcFreedom(e) {
 
-    const rate = parseFloat(this.state.rate / 100);
-    const monthlyRevenue = parseFloat(this.state.monthlyRevenue.replaceAll(".", "").replaceAll(",", ""));
+    const rate = parseFloat(this.state.rate.replaceAll(".", "").replaceAll(",", ".") / 100);
+    const monthlyRevenue = parseFloat(this.state.monthlyRevenue.replaceAll(".", "").replaceAll(",", "."));
     const finFreedomTime = parseFloat(this.state.freedomAge - this.state.age);
     const finFreedomTimeUse = parseFloat(this.state.lifeExpectancy - this.state.freedomAge);
     const nper1 = parseFloat(finFreedomTime * 12);
@@ -172,7 +172,7 @@ class FinancialFreedomForm extends React.Component {
         <Form.Group as={Row} className="mb-3">
           <Form.Label column>Taxa de rentabilidade média mensal (%)</Form.Label>
           <Col>
-            <Form.Control name="rate" type="number" value={this.state.rate} onChange={this.handleChange} />
+            <Form.Control name="rate" type="text" value={this.state.rate} onChange={this.handleChange} onBlur={this.handleFormatNumeric} />
           </Col>
         </Form.Group>
 
